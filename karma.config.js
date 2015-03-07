@@ -13,7 +13,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'tests/*_test.js'
+            'tests/*_test.coffee'
         ],
 
 
@@ -25,7 +25,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'tests/*_test.js': ['webpack']
+            'tests/*_test.coffee': ['webpack']
         },
 
 
@@ -66,7 +66,8 @@ module.exports = function(config) {
         webpack: { //kind of a copy of your webpack config
             module: {
                 loaders: [
-                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+                    { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+                    { test: /\.coffee$/, exclude: /node_modules/, loader: 'coffee-loader'}
                 ]
             }
         }
